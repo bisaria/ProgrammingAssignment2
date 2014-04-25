@@ -24,7 +24,6 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
-
 ## This function takes the special 'matrix' object as argument and  
 ## returns the inverse of this special 'matrix' object. 
 ## It first checks if the inverse has already been calculated.
@@ -41,8 +40,10 @@ cacheSolve <- function(x, ...) {
     message("getting cached data")
     return(inv)
   }
+
   mat <- x$get()
   inv <- MASS::ginv(mat, ...)
+
   x$setinverse(inv)
   inv
 }
